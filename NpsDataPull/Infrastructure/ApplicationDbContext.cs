@@ -1,13 +1,8 @@
 namespace NpsDataPull.Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
+using NpsDataPull.Domain.Models;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
 {
-    public DbSet<NationalParks> NationalParks { get; set; }
-    
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer("Server=localhost;Database=NationalParks;Trusted_Connection=True;");
-    }
+    public DbSet<NationalPark> NationalParks { get; set; }
 }

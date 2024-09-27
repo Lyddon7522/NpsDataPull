@@ -1,6 +1,6 @@
 namespace NpsDataPull.Domain.Models;
 
-public class RootObject
+public class NpsParksApi
 {
     public string? Total { get; set; }
     public List<Data>? Data { get; set; }
