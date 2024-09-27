@@ -6,5 +6,5 @@ namespace NpsDataPull.Application;
 
 public interface INpsParkService
 {
-    Task<IEnumerable<NpsParksApi>> GetParksAsync();
+    Task<NpsParksApi?> GetParksAsync();
 }

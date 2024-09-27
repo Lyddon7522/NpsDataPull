@@ -15,8 +15,11 @@ var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddSingleton(configuration);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<INpsParkService, NpsParkService>();
+//builder.Services.AddHttpClient<INpsParkService, NpsParkService>();
+
+var apiKey = configuration["ApiSettings:ApiKey"];
+using HttpClient httpClient = new();
+httpClient.DefaultRequestHeaders.Add("X-Api-Key", apiKey);
 
 
-Console.WriteLine(configuration["ConnectionStrings:DefaultConnection"]);
-Console.WriteLine(configuration["ApiSettings:BaseUrl"]);
+

@@ -3,12 +3,12 @@ namespace NpsDataPull.Domain.Models;
 public class NpsParksApi
 {
     public string? Total { get; set; }
-    public List<Data>? Data { get; set; }
+    public List<Park>? Parks { get; set; }
     public string? Limit { get; set; }
     public string? Start { get; set; }
 }
 
-public class Data
+public class Park
 {
     public List<Activities>? Activities { get; set; }
     public List<Addresses>? Addresses { get; set; }

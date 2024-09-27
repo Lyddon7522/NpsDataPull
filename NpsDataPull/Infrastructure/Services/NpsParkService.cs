@@ -1,15 +1,23 @@
+using System.Text.Json.Serialization;
 using Microsoft.Extensions.Configuration;
 using NpsDataPull.Application;
 using NpsDataPull.Domain.Models;
+using Newtonsoft.Json;
 
 namespace NpsDataPull.Infrastructure.Services;
 
-public class NpsParkService(IConfiguration configuration) : INpsParkService
+public class NpsParkService(IConfiguration configuration, HttpClient httpClient) : INpsParkService
 {
     private readonly IConfiguration _configuration = configuration;
+    private readonly HttpClient _httpClient = httpClient;
     
-    public Task<IEnumerable<NpsParksApi>> GetParksAsync()
+    public async Task<NpsParksApi?> GetParksAsync()
     {
-        throw new NotImplementedException();
+        var npsParkApiUrl = $"{_configuration["ApiSettings:BaseUrl"]}/park";
+        
+        var response = await httpClient.GetStringAsync(npsParkApiUrl);
+        var parks = JsonConvert.DeserializeObject<NpsParksApi>(response);
+        return parks;
+
     }
 }
