@@ -13,7 +13,7 @@ public class NpsParkService(IConfiguration configuration, HttpClient httpClient)
     
     public async Task<NpsParksApi?> GetParksAsync()
     {
-        var npsParkApiUrl = $"{_configuration["ApiSettings:BaseUrl"]}/park";
+        var npsParkApiUrl = $"{_configuration["ApiSettings:BaseUrl"]}/parks";
         
         var response = await httpClient.GetStringAsync(npsParkApiUrl);
         var parks = JsonConvert.DeserializeObject<NpsParksApi>(response);
