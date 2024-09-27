@@ -1,14 +1,14 @@
-namespace NpsDataPull.Models;
+namespace NpsDataPull.Domain.Models;
 
 public class RootObject
 {
     public string? Total { get; set; }
-    public Park[]? Data { get; set; }
+    public List<Data>? Data { get; set; }
     public string? Limit { get; set; }
     public string? Start { get; set; }
 }
 
-public class Park
+public class Data
 {
     public List<Activities>? Activities { get; set; }
     public List<Addresses>? Addresses { get; set; }
