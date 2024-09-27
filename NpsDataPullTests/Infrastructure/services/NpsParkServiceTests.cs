@@ -36,7 +36,7 @@ namespace NpsDataPullTests.Infrastructure.Services
                     Content = new StringContent(JsonConvert.SerializeObject(new NpsParksApi
                     {
                         Total = "1",
-                        Parks =
+                        Data =
                         [
                             new Park
                             {
@@ -56,9 +56,9 @@ namespace NpsDataPullTests.Infrastructure.Services
             // Assert
             Assert.NotNull(result);
             Assert.Equal("1", result?.Total);
-            Assert.Single(result?.Parks);
-            Assert.Equal("Test Park", result?.Parks[0].FullName);
-            Assert.Equal("A beautiful park for testing.", result?.Parks[0].Description);
+            Assert.Single(result?.Data);
+            Assert.Equal("Test Park", result?.Data[0].FullName);
+            Assert.Equal("A beautiful park for testing.", result?.Data[0].Description);
         }
     }
 }

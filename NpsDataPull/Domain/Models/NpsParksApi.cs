@@ -3,7 +3,7 @@ namespace NpsDataPull.Domain.Models;
 public class NpsParksApi
 {
     public string? Total { get; set; }
-    public List<Park>? Parks { get; set; }
+    public List<Park>? Data { get; set; }
     public string? Limit { get; set; }
     public string? Start { get; set; }
 }
@@ -12,7 +12,7 @@ public class Park
 {
     public List<Activities>? Activities { get; set; }
     public List<Addresses>? Addresses { get; set; }
-    public List<Contacts>? Contacts { get; set; }
+    public Contacts? Contacts { get; set; }
     public string? Description { get; set; }
     public string? Designation { get; set; }
     public string? DirectionsInfo { get; set; }
@@ -27,7 +27,7 @@ public class Park
     public string? Name { get; set; }
     public List<OperatingHours>? OperatingHours { get; set; }
     public string? ParkCode { get; set; }
-    public int? RelevanceScore { get; set; }
+    public double? RelevanceScore { get; set; }
     public string? States { get; set; }
     public List<Topics>? Topics { get; set; }
     public string? Url { get; set; }
@@ -75,14 +75,14 @@ public class EmailAddresses
 
 public class EntranceFees
 {
-    public int Cost { get; set; }
+    public string? Cost { get; set; }
     public string? Description { get; set; }
     public string? Title { get; set; }
 }
 
 public class EntrancePasses
 {
-    public int Cost { get; set; }
+    public string? Cost { get; set; }
     public string? Description { get; set; }
     public string? Title { get; set; }
 }
@@ -109,7 +109,7 @@ public class OperatingHours
 {
     public string? Name { get; set; }
     public string? Description { get; set; }
-    public List<StandardHours>? StandardHours { get; set; }
+    public StandardHours? StandardHours { get; set; }
     public List<Exceptions>? Exceptions { get; set; }
 }
 
@@ -129,7 +129,7 @@ public class Exceptions
     public string? Name { get; set; }
     public string? StartDate { get; set; }
     public string? EndDate { get; set; }
-    public List<ExceptionHours>? ExceptionHours { get; set; }
+    public ExceptionHours? ExceptionHours { get; set; }
 }
 
 public class ExceptionHours
